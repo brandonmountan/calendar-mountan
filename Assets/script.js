@@ -2,10 +2,62 @@
 // the code isn't run until the browser has finished rendering all the elements
 // in the html.
 
+// Puts current date and time into website
+// var date = new Date();
+// var day = date.getDate();
+// var month = date.getMonth() + 1;
+// var year = date.getFullYear();
+// var currentDate = `${month}-${day}-${year}`;
+// console.log(currentDate);
+// $('#currentDay').text(currentDate);                                                                                                                                                    c
 var now = dayjs();
+console.log(now);
+dayjs(now).format('MM-DD-YYYYTHH:mm:ss-0-05:00');
 $('#currentDay').text(now);
 
-$(function () {
+
+var userInput = document.getElementsByClassName("description");
+var saveButton = document.querySelector(".saveBtn");
+
+// console.log(userInput);
+
+// function renderLastSaved () {
+
+//   var description = localStorage.getItem("description");
+
+//   userInput.textContent = description;
+
+//   console.log(description);
+
+// }
+
+$(function testing() {
+
+    $(saveButton).click(function() {      
+      var hello = $(userInput).val();
+      console.log(hello);
+      localStorage.getItem("userInput", userInput);
+      localStorage.setItem("userInput", userInput);
+    })
+})
+
+// $(saveButton.addEventListener("click", function(event) {
+//     // event.preventDefault();
+//     console.log(event);
+
+//     var description = localStorage.getItem("description");
+//     userInput.textContent = description;
+//     console.log(description);
+
+//     if (description === "") {
+//       alert("test");
+//       localStorage.setItem("description", description);
+//       renderLastSaved();
+//     } else {
+//       alert("hello");
+//     }
+
+
   // TODO: Add a listener for click events on the save button. This code should
   // use the id in the containing time-block as a key to save the user input in
   // local storage. HINT: What does `this` reference in the click listener
@@ -24,4 +76,4 @@ $(function () {
   // attribute of each time-block be used to do this?
   //
   // TODO: Add code to display the current date in the header of the page.
-});
+// }));
