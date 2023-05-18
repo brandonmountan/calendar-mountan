@@ -3,42 +3,68 @@
 // in the html.
 
 // Puts current date and time into website
-// var date = new Date();
-// var day = date.getDate();
-// var month = date.getMonth() + 1;
-// var year = date.getFullYear();
-// var currentDate = `${month}-${day}-${year}`;
-// console.log(currentDate);
-// $('#currentDay').text(currentDate);                                                                                                                                                    c
-var now = dayjs();
-console.log(now);
-dayjs(now).format('MM-DD-YYYYTHH:mm:ss-0-05:00');
-$('#currentDay').text(now);
+var today = dayjs();
+var time = dayjs().format('hh:mm:ss');
+$('#currentDay').text(today.format('MMM D, YYYY, hh:mm:ss'));
 
 
-var userInput = document.getElementsByClassName("description");
-var saveButton = document.querySelector(".saveBtn");
+
+
+var userInput = document.querySelectorAll(".description");
+var saveButton = document.querySelectorAll(".saveBtn");
+
+
+
 
 // console.log(userInput);
+// console.log(saveButton);
+
+// renderLastSaved();
 
 // function renderLastSaved () {
 
-//   var description = localStorage.getItem("description");
+//   var goodbye = localStorage.getItem("hello");
 
-//   userInput.textContent = description;
+//   for (let i = 0; i < userInput.length; i++) {
 
-//   console.log(description);
+//     userInput[i].textContent = goodbye;
 
-// }
+//   };
+//   console.log(goodbye);
+// };
 
 $(function testing() {
 
-    $(saveButton).click(function() {      
-      var hello = $(userInput).val();
-      console.log(hello);
-      localStorage.getItem("userInput", userInput);
-      localStorage.setItem("userInput", userInput);
-    })
+    saveButton.onclick(function(event) {
+      event.preventDefault();   
+      console.log(event.target);
+      // var hello = $(userInput).val();
+      // console.log(hello);
+      // localStorage.setItem("hello", hello);
+
+    // function renderLastSaved() {
+    //   for (let i = 0; i < userInput.length; i++) {
+
+    //       userInput[i].textContent = goodbye;
+
+    //       localStorage.setItem("goodbye", goodbye);
+
+    //       console.log(goodbye);
+
+    //   }
+    //   // console.log(goodbye);
+    //   // for (let i = 0; i < saveButton.length; i++) {
+
+    //   //   saveButton[i].event = hey;
+
+    //   // }
+
+    // }
+    //   var goodbye = localStorage.getItem("goodbye");
+
+    //   renderLastSaved();
+    // })
+});
 })
 
 // $(saveButton.addEventListener("click", function(event) {
@@ -70,7 +96,22 @@ $(function testing() {
   // attribute of each time-block be used to conditionally add or remove the
   // past, present, and future classes? How can Day.js be used to get the
   // current hour in 24-hour time?
-  //
+
+// $(function addLabel() {
+
+//   if (time < hour) {
+//     $("div").addClass("past");
+//   } if (time === hour) {
+//     $("div").addClass("present");
+//   } if (time > hour) {
+//     $("div").addClass("future");
+//   }
+// });
+
+  // if time > hour then past
+  // if time = hour then present
+  // if time < hour then future
+
   // TODO: Add code to get any user input that was saved in localStorage and set
   // the values of the corresponding textarea elements. HINT: How can the id
   // attribute of each time-block be used to do this?
